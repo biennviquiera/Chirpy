@@ -27,10 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.arrayOfTweets = [[NSMutableArray alloc] init];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    //create refresh instance
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
+    
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweets, NSError *error) {
         if (tweets) {
@@ -79,6 +83,8 @@
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     
     cell.userImage.image = [UIImage imageWithData:urlData];
+    cell.userImage.clipsToBounds = true;
+    cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width/2;
 
     return cell;
 }
