@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = 300;
     
     //create refresh instance
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -57,11 +57,15 @@
     
     Tweet *currentTweet = self.arrayOfTweets[indexPath.row];
     User *currentUser = (User *)[currentTweet user];
+    
+    //set tweet labels
     cell.userName.text = [currentUser name];
     NSString *handle = [NSString stringWithFormat: @"%s%@", "@", [currentUser screenName]];
     cell.userHandle.text = handle;
     cell.tweetLabel.text = [currentTweet text];
     cell.dateLabel.text = [currentTweet createdAtString];
+    cell.favLabel.text = [NSString stringWithFormat:@"%i", [currentTweet favoriteCount]];
+    cell.retweetLabel.text = [NSString stringWithFormat:@"%i", [currentTweet retweetCount]];
     
     
     //get user image
