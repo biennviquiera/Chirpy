@@ -33,25 +33,12 @@
     
     //create refresh instance
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    //swipe to refresh
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
     
+    [self beginRefresh:refreshControl];
     
-    // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweets, NSError *error) {
-        if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//            }
-            
-            self.arrayOfTweets = tweets;
-            NSLog(@"%lu", self.arrayOfTweets.count);
-            [self.tableView reloadData];
-
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +76,31 @@
     return cell;
 }
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    // Get timeline
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweets, NSError *error) {
+        if (tweets) {
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+//            for (NSDictionary *dictionary in tweets) {
+//                NSString *text = dictionary[@"text"];
+//                NSLog(@"%@", text);
+//            }
+            
+            self.arrayOfTweets = tweets;
+            NSLog(@"%lu", self.arrayOfTweets.count);
+            [self.tableView reloadData];
+
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+        }
+    }];
+       // Reload the tableView now that there is new data
+        [self.tableView reloadData];
+
+       // Tell the refreshControl to stop spinning
+        [refreshControl endRefreshing];
+
+}
 /*
 #pragma mark - Navigation
 
