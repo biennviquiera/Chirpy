@@ -30,6 +30,7 @@
     self.arrayOfTweets = [[NSMutableArray alloc] init];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweets, NSError *error) {
         if (tweets) {
@@ -73,6 +74,12 @@
     
     
     //get user image
+    NSString *URLString = currentUser.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+    cell.userImage.image = [UIImage imageWithData:urlData];
+
     return cell;
 }
 
