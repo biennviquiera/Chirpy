@@ -9,10 +9,18 @@
 #import "ComposeViewController.h"
 
 @interface ComposeViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *composeField;
 
 @end
 
 @implementation ComposeViewController
+- (IBAction)closeAction:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)tweetAction:(id)sender {
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

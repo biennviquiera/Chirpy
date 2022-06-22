@@ -29,7 +29,8 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 300;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 600;
     
     //create refresh instance
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
