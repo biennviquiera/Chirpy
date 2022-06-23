@@ -79,6 +79,7 @@
     cell.userImage.image = [UIImage imageWithData:urlData];
     cell.userImage.clipsToBounds = true;
     cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width/2;
+    [cell refreshLabels];
 
     return cell;
 }
