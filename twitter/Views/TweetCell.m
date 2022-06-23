@@ -60,7 +60,7 @@
     self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     
-    //set images TODO:
+    //set images
     if (self.tweet.favorited) {
         [self.favButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
     }
@@ -73,6 +73,9 @@
     if (!self.tweet.retweeted) {
         [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
     }
+    
+    //set time
+    self.dateLabel.text = self.tweet.createdAtString;
 }
 
 @end
