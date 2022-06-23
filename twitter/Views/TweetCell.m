@@ -8,6 +8,7 @@
 
 #import "TweetCell.h"
 #import "TimelineViewController.h"
+#import "APIManager.h"
 
 @implementation TweetCell
 
@@ -25,7 +26,16 @@
 - (IBAction)didTapFavorite:(id)sender {
     self.tweet.favorited = YES;
     self.tweet.favoriteCount += 1;
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+        }
+    }];
     [self refreshLabels];
+    
     
 }
 
@@ -34,7 +44,19 @@
     self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     
-    //TODO: set images
+    //set images TODO:
+    if (self.tweet.favorited) {
+        [self.favButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+    }
+    if (!self.tweet.favorited) {
+        [self.favButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    }
+    if (self.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
+    }
+    if (!self.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+    }
 }
 
 @end
