@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) TweetCell *passedTweet;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
+
+//METHODS
+- (void)refreshLabels;
+
 @end
 
 NS_ASSUME_NONNULL_END
