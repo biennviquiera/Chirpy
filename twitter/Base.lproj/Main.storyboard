@@ -256,7 +256,7 @@
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="CEe-Nx-8Rp">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                             <connections>
-                                <segue destination="vtP-DN-81I" kind="presentation" customClass="ComposeSegue" id="ImH-di-dyy"/>
+                                <segue destination="vtP-DN-81I" kind="presentation" identifier="ComposeSegue" id="ImH-di-dyy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -271,6 +271,7 @@
         <!--Details View Controller-->
         <scene sceneID="lf0-JP-ZUr">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tg6-Pi-HyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="I0A-3e-bIB" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G3u-2o-0Xq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -280,7 +281,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Yax-tM-eSp"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tg6-Pi-HyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1659" y="821"/>
         </scene>
