@@ -7,6 +7,7 @@
 //
 
 #import "TweetCell.h"
+#import "TimelineViewController.h"
 
 @implementation TweetCell
 
@@ -19,6 +20,21 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+    [self refreshLabels];
+    
+}
+
+- (void)refreshLabels {
+    //set values
+    self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
+    //TODO: set images
 }
 
 @end

@@ -59,6 +59,7 @@
     
     Tweet *currentTweet = self.arrayOfTweets[indexPath.row];
     User *currentUser = (User *)[currentTweet user];
+    cell.tweet = currentTweet;
     
     //set tweet labels
     cell.userName.text = [currentUser name];
