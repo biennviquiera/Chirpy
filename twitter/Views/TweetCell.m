@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "TimelineViewController.h"
 #import "APIManager.h"
+#import "DateTools.h"
 
 @implementation TweetCell
 
