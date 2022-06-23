@@ -28,6 +28,7 @@
     [[APIManager shared] postStatusWithText:[self.composeField text] completion:^(Tweet *twt, NSError *err) {
         if (twt) {
             NSLog(@"twt success");
+            [self.delegate didTweet:twt];
             //dismiss the viewcontroller
             [self dismissViewControllerAnimated:true completion:nil];
             

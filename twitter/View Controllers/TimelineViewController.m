@@ -10,11 +10,12 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "ComposeViewController.h"
 #import "Tweet.h"
 #import "User.h"
 #import "TweetCell.h"
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
 - (IBAction)didTapLogout:(id)sender;
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -106,15 +107,27 @@
         [refreshControl endRefreshing];
 
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    
+    UINavigationController *navigationController = [segue destinationViewController];
     // Pass the selected object to the new view controller.
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
 }
-*/
+
+//protocol to check if compose was pressed
+- (void)didTweet:(Tweet *)tweet {
+    NSLog(@"delegate triggered");
+    [self.arrayOfTweets addObject:tweet];
+    [self.tableView reloadData];
+}
+
+
 
 
 - (IBAction)didTapLogout:(id)sender {
