@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TweetCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
-
+@property (nonatomic, weak) TweetCell *passedTweet;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h""
 #import "Tweet.h"
 #import "User.h"
 #import "TweetCell.h"
@@ -137,11 +138,19 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    
-    UINavigationController *navigationController = [segue destinationViewController];
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ComposeSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        // Pass the selected object to the new view controller.
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
+    }
+    if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
+        TweetCell *tappedCell = sender;
+        
+        DetailsViewController *navigationController = [segue destinationViewController];
+        // Pass the selected object to the new view controller.
+        navigationController.passedTweet = tappedCell;
+    }
 }
 
 @end

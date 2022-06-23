@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    
+    NSLog(@"%@", self.passedTweet.tweet.createdAtString);
 }
+
 
 /*
 #pragma mark - Navigation
