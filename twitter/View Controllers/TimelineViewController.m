@@ -19,7 +19,7 @@
 - (IBAction)didTapLogout:(id)sender;
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 
@@ -115,7 +115,7 @@
 - (void)didTweet:(Tweet *)tweet {
     NSLog(@"delegate triggered");
     [self.arrayOfTweets addObject:tweet];
-    [self.tableView reloadData];
+    [self beginRefresh:self.refreshControl];
 }
 
 - (IBAction)didTapLogout:(id)sender {
