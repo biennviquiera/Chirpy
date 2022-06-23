@@ -110,17 +110,6 @@
 
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    
-    UINavigationController *navigationController = [segue destinationViewController];
-    // Pass the selected object to the new view controller.
-        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-        composeController.delegate = self;
-}
 
 //protocol to check if compose was pressed
 - (void)didTweet:(Tweet *)tweet {
@@ -128,9 +117,6 @@
     [self.arrayOfTweets addObject:tweet];
     [self.tableView reloadData];
 }
-
-
-
 
 - (IBAction)didTapLogout:(id)sender {
     //usees the delegate to change the root view controller to the login
@@ -144,4 +130,18 @@
     [[APIManager shared] logout];
 
 }
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    
+    UINavigationController *navigationController = [segue destinationViewController];
+    // Pass the selected object to the new view controller.
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+}
+
 @end

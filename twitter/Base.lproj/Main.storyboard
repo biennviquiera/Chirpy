@@ -226,6 +226,7 @@
                                             <outlet property="userHandle" destination="mNU-sH-df6" id="xmb-E4-LMW"/>
                                             <outlet property="userImage" destination="aVM-ic-OZ8" id="qRa-wa-2p8"/>
                                             <outlet property="userName" destination="BmP-rx-soG" id="17Y-Gb-8xK"/>
+                                            <segue destination="I0A-3e-bIB" kind="show" identifier="DetailsSegue" id="Grg-ox-Np3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -255,7 +256,7 @@
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="CEe-Nx-8Rp">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                             <connections>
-                                <segue destination="vtP-DN-81I" kind="presentation" id="ImH-di-dyy"/>
+                                <segue destination="vtP-DN-81I" kind="presentation" customClass="ComposeSegue" id="ImH-di-dyy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -266,6 +267,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1659.4202898550725" y="36.160714285714285"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="lf0-JP-ZUr">
+            <objects>
+                <viewController id="I0A-3e-bIB" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G3u-2o-0Xq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sPa-KH-6OV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yax-tM-eSp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tg6-Pi-HyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="821"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="000-vu-oGT">
@@ -279,7 +296,7 @@
                                 <rect key="frame" x="0.0" y="74" width="375" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
