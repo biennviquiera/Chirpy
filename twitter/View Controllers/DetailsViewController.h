@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TweetCell.h"
+#import "APIManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

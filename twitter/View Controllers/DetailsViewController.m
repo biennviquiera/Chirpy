@@ -13,6 +13,66 @@
 @end
 
 @implementation DetailsViewController
+- (IBAction)didTapRetweet:(id)sender {
+    
+    if (self.passedTweet.tweet.retweeted) {
+        [[APIManager shared] unretweet:self.passedTweet.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                self.passedTweet.tweet.retweeted = NO;
+                NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+                self.passedTweet.tweet.retweetCount -= 1;
+                [self refreshLabels];
+            }
+        }];
+    }
+    else {
+        [[APIManager shared] retweet:self.passedTweet.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                self.passedTweet.tweet.retweeted = YES;
+                NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                self.passedTweet.tweet.retweetCount += 1;
+                [self refreshLabels];
+            }
+        }];
+    }
+    
+}
+- (IBAction)didTapFavorite:(id)sender {
+    
+    if (self.passedTweet.tweet.favorited) {
+        [[APIManager shared] unfavorite:self.passedTweet.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+                self.passedTweet.tweet.favorited = NO;
+                self.passedTweet.tweet.favoriteCount -= 1;
+                [self refreshLabels];
+            }
+        }];
+    }
+    else {
+        [[APIManager shared] favorite:self.passedTweet.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                self.passedTweet.tweet.favorited = YES;
+                self.passedTweet.tweet.favoriteCount += 1;
+                [self refreshLabels];
+            }
+        }];
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +94,19 @@
     self.retweetCount.text = [NSString stringWithFormat:@"%d", self.passedTweet.tweet.retweetCount];
     self.favCount.text = [NSString stringWithFormat:@"%d", self.passedTweet.tweet.favoriteCount];
     
+    //for updating when buttons are clicked
+    if (self.passedTweet.tweet.favorited) {
+        [self.favButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+    }
+    if (!self.passedTweet.tweet.favorited) {
+        [self.favButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    }
+    if (self.passedTweet.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
+    }
+    if (!self.passedTweet.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+    }
     
 }
 
