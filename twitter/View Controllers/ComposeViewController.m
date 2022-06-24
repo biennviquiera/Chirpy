@@ -26,7 +26,6 @@
         if (twt) {
             NSLog(@"twt success");
             [self.delegate didTweet:twt];
-            //dismiss the viewcontroller
             [self dismissViewControllerAnimated:true completion:nil];
             
         }
@@ -42,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.textField.delegate = self;
 
 }

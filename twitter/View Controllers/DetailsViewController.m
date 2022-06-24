@@ -76,10 +76,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
     //set labels to the passed tweet's
-    NSLog(@"%@", self.passedTweet.tweet.createdAtString);
     [self refreshLabels];
 }
 

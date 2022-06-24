@@ -89,10 +89,6 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//            }
             
             self.arrayOfTweets = tweets;
             NSLog(@"%lu", self.arrayOfTweets.count);
@@ -119,7 +115,7 @@
 }
 
 - (IBAction)didTapLogout:(id)sender {
-    //usees the delegate to change the root view controller to the login
+    //uses the delegate to change the root view controller to the login
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -136,18 +132,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
     if ([[segue identifier] isEqualToString:@"ComposeSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];
-        // Pass the selected object to the new view controller.
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
     if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
         TweetCell *tappedCell = sender;
-        
         DetailsViewController *navigationController = [segue destinationViewController];
-        // Pass the selected object to the new view controller.
         navigationController.passedTweet = tappedCell;
     }
     if ([[segue identifier] isEqualToString:@"ReplySegue"]) {
