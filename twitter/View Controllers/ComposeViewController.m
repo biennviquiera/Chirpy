@@ -49,8 +49,14 @@
 }
 
 -(void)textViewDidChange:(UITextView *)textView{
-    
-    self.charCount.text = [NSString stringWithFormat:@"%d", [self.textField.text length]];
+    unsigned long charsize = [self.textField.text length];
+    self.charCount.text = [NSString stringWithFormat:@"%lu", charsize];
+    if (charsize > 280) {
+        self.charCount.textColor = [UIColor systemRedColor];
+    }
+    if (charsize <= 280) {
+        self.charCount.textColor = [UIColor systemGray2Color];
+    }
     
 }
 
