@@ -19,12 +19,9 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-- (IBAction)tweetAction:(id)sender {
-//    [[APIManager shared] postStatusWithText:[sender text]^(Tweet *te, NSError *err) {
-//
-//    }
-//
-//    ];
+- (IBAction)tweetAction:(UIButton*)sender {
+    sender.enabled = NO;
+    
     [[APIManager shared] postStatusWithText:[self.composeField text] completion:^(Tweet *twt, NSError *err) {
         if (twt) {
             NSLog(@"twt success");
@@ -34,6 +31,8 @@
             
         }
         else {
+            sender.enabled = YES;
+
             NSLog(@"twt fail. %@", err.localizedDescription);
             
         }

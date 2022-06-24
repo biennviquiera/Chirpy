@@ -56,7 +56,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tweetCell" forIndexPath:indexPath];
-//    NSLog(@"%@", [(User *)[self.arrayOfTweets[indexPath.row] user] name]);
     
     Tweet *currentTweet = self.arrayOfTweets[indexPath.row];
     User *currentUser = (User *)[currentTweet user];
@@ -150,6 +149,9 @@
         DetailsViewController *navigationController = [segue destinationViewController];
         // Pass the selected object to the new view controller.
         navigationController.passedTweet = tappedCell;
+    }
+    if ([[segue identifier] isEqualToString:@"ReplySegue"]) {
+        
     }
 }
 
