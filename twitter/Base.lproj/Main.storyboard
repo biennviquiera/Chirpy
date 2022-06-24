@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-Be-gi1">
-                                <rect key="frame" x="32" y="418" width="350" height="60"/>
+                                <rect key="frame" x="64" y="418" width="286" height="60"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.55294117649999996" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="EfS-pm-fmn"/>
@@ -33,22 +33,25 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TwitterLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="KMY-gb-DAH">
-                                <rect key="frame" x="107" y="136" width="200" height="200"/>
+                                <rect key="frame" x="107" y="164" width="200" height="253"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="253" id="0uz-11-iUb"/>
+                                    <constraint firstAttribute="width" constant="200" id="teP-aT-nPm"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="osx-NC-afp"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nNt-Be-gi1" secondAttribute="trailing" constant="32" id="7Ot-Cj-enN"/>
-                            <constraint firstItem="nNt-Be-gi1" firstAttribute="top" secondItem="KMY-gb-DAH" secondAttribute="bottom" constant="82" id="89v-B5-uaa"/>
-                            <constraint firstItem="KMY-gb-DAH" firstAttribute="centerX" secondItem="Oyf-Hu-DjK" secondAttribute="centerX" id="Cto-WV-B6j"/>
+                            <constraint firstAttribute="trailing" secondItem="nNt-Be-gi1" secondAttribute="trailing" constant="64" id="7Ot-Cj-enN"/>
+                            <constraint firstItem="nNt-Be-gi1" firstAttribute="top" secondItem="KMY-gb-DAH" secondAttribute="bottom" constant="1" id="9M8-hz-zMP"/>
+                            <constraint firstItem="KMY-gb-DAH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="osx-NC-afp" secondAttribute="top" constant="10" id="HQM-n2-7iJ"/>
                             <constraint firstItem="nNt-Be-gi1" firstAttribute="centerY" secondItem="Oyf-Hu-DjK" secondAttribute="centerY" id="IFY-Q2-tf8"/>
-                            <constraint firstItem="nNt-Be-gi1" firstAttribute="leading" secondItem="osx-NC-afp" secondAttribute="leading" constant="32" id="Rvm-Wc-HLY"/>
-                            <constraint firstItem="osx-NC-afp" firstAttribute="bottom" secondItem="nNt-Be-gi1" secondAttribute="bottom" constant="384" id="YnQ-yB-Bc1"/>
-                            <constraint firstItem="nNt-Be-gi1" firstAttribute="leading" secondItem="Oyf-Hu-DjK" secondAttribute="leading" constant="32" id="Ziq-X8-PYS"/>
-                            <constraint firstItem="KMY-gb-DAH" firstAttribute="bottom" secondItem="Oyf-Hu-DjK" secondAttribute="centerY" multiplier="3:4" id="b8f-Hh-cKF"/>
+                            <constraint firstItem="nNt-Be-gi1" firstAttribute="leading" secondItem="osx-NC-afp" secondAttribute="leading" constant="64" id="Rvm-Wc-HLY"/>
+                            <constraint firstItem="osx-NC-afp" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nNt-Be-gi1" secondAttribute="bottom" constant="20" id="YnQ-yB-Bc1"/>
+                            <constraint firstItem="nNt-Be-gi1" firstAttribute="leading" secondItem="Oyf-Hu-DjK" secondAttribute="leading" constant="64" id="Ziq-X8-PYS"/>
                             <constraint firstItem="osx-NC-afp" firstAttribute="trailing" secondItem="KMY-gb-DAH" secondAttribute="trailing" constant="107" id="kE0-4e-H9c"/>
-                            <constraint firstItem="osx-NC-afp" firstAttribute="trailing" secondItem="nNt-Be-gi1" secondAttribute="trailing" constant="32" id="m2y-3C-gtF"/>
+                            <constraint firstItem="osx-NC-afp" firstAttribute="trailing" secondItem="nNt-Be-gi1" secondAttribute="trailing" constant="64" id="m2y-3C-gtF"/>
                             <constraint firstItem="KMY-gb-DAH" firstAttribute="leading" secondItem="osx-NC-afp" secondAttribute="leading" constant="107" id="mqX-e3-Miw"/>
                         </constraints>
                     </view>
@@ -470,7 +473,7 @@
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="820.98214285714278"/>
         </scene>
-        <!--Compose View Controller-->
+        <!--Compose Tweet-->
         <scene sceneID="000-vu-oGT">
             <objects>
                 <viewController id="yH4-VB-Uf4" customClass="ComposeViewController" sceneMemberID="viewController">
@@ -489,8 +492,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="char count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci7-1E-6Rm">
-                                <rect key="frame" x="298" y="273" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci7-1E-6Rm">
+                                <rect key="frame" x="380" y="273" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -508,7 +511,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="BFS-RW-7XA">
+                    <navigationItem key="navigationItem" title="Compose Tweet" id="BFS-RW-7XA">
                         <barButtonItem key="leftBarButtonItem" image="close-icon" id="pZj-tX-hTX">
                             <connections>
                                 <action selector="closeAction:" destination="yH4-VB-Uf4" id="Ogf-45-4lf"/>
