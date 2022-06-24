@@ -53,9 +53,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/y6H3x47.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://imgur.com/y6H3x47.gif
 <hr>
-<img src='https://imgur.com/5GRF2vf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://imgur.com/5GRF2vf.gif'
 
 
 ## Notes
