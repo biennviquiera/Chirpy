@@ -523,7 +523,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="charCount" destination="Ci7-1E-6Rm" id="D1l-yH-iA1"/>
                         <outlet property="composeField" destination="iv8-6i-OoW" id="lnY-av-mYd"/>
+                        <outlet property="textField" destination="iv8-6i-OoW" id="tHw-sO-NhK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtf-80-Y91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

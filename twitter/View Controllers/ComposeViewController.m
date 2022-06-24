@@ -9,7 +9,7 @@
 #import "ComposeViewController.h"
 #import "APIManager.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeField;
 
 @end
@@ -34,7 +34,8 @@
             
         }
         else {
-            NSLog(@"twt fail");
+            NSLog(@"twt fail. %@", err.localizedDescription);
+            
         }
     }];
 }
@@ -43,7 +44,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.textField.delegate = self;
+
 }
+
+-(void)textViewDidChange:(UITextView *)textView{
+    
+    self.charCount.text = [NSString stringWithFormat:@"%d", [self.textField.text length]];
+    
+}
+
 
 /*
 #pragma mark - Navigation
