@@ -88,7 +88,7 @@
     self.userImage.clipsToBounds = true;
     self.userImage.layer.cornerRadius = self.userImage.frame.size.width/2;
     self.userName.text = self.passedTweet.tweet.user.name;
-    self.userHandle.text = self.passedTweet.tweet.user.screenName;
+    self.userHandle.text = [NSString stringWithFormat:@"@%@", self.passedTweet.tweet.user.screenName];
     self.tweetText.text = self.passedTweet.tweet.text;
     self.date.text = self.passedTweet.tweet.createdAtString;
     self.retweetCount.text = [NSString stringWithFormat:@"%d", self.passedTweet.tweet.retweetCount];
