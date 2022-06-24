@@ -23,6 +23,9 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)didTapReply:(id)sender {
+    
+}
 
 - (IBAction)didTapFavorite:(id)sender {
     

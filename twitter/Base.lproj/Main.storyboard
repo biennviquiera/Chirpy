@@ -176,6 +176,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="reply-icon"/>
                                                     <connections>
+                                                        <action selector="didTapReply:" destination="h8o-Ip-pIo" eventType="touchUpInside" id="6gg-Zs-yZZ"/>
                                                         <segue destination="GLG-YC-7sE" kind="presentation" identifier="ReplySegue" id="dUH-UK-qoq"/>
                                                     </connections>
                                                 </button>
@@ -547,9 +548,9 @@
                         <outlet property="date" destination="79I-QY-2KG" id="w5S-1J-oSy"/>
                         <outlet property="quotedTweet" destination="sTS-VK-cwR" id="DM6-dc-1LE"/>
                         <outlet property="replyField" destination="lKh-Xm-kJP" id="4C8-oY-Mvr"/>
-                        <outlet property="replyImage" destination="hTk-jc-Wn8" id="GcS-ns-qsU"/>
                         <outlet property="replyingToLabel" destination="UT4-wq-EyX" id="55M-rK-aE1"/>
                         <outlet property="userHandle" destination="7GV-5q-EMf" id="ka4-aw-rQn"/>
+                        <outlet property="userImage" destination="hTk-jc-Wn8" id="vrr-Jj-aBK"/>
                         <outlet property="userName" destination="0sT-2s-Zmu" id="m8P-FA-wYF"/>
                     </connections>
                 </viewController>
